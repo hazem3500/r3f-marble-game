@@ -11,42 +11,43 @@ import { Title } from './Title'
 import { useDebuggers } from './useDebuggers'
 
 function Experience() {
-  const { debug } = useControls({
-    debug: false
-  })
+    const { debug } = useControls({
+        debug: false
+    })
 
-  return (
-    <Physics>
-      {debug && <Debug />}
-      <Title />
-      <Level />
-    </Physics>
-  )
+    return (
+        <Physics>
+            {debug && <Debug />}
+            <Title />
+            <Level />
+        </Physics>
+    )
 }
 
 function App() {
-  const shouldUseDebuggers = useDebuggers()
+    const shouldUseDebuggers = useDebuggers()
 
-  return (
-    <NavigationControls>
-      <Canvas
-        shadows
-        camera={{
-          position: [0, 5, 10]
-        }}>
-        <color attach="background" args={['#FEF9F7']} />
+    return (
+        <NavigationControls>
+            <Canvas
+                shadows
+                camera={{
+                    position: [0, 5, 10]
+                }}
+            >
+                <color attach="background" args={['#FEF9F7']} />
 
-        {shouldUseDebuggers && <Perf position="bottom-left" />}
+                {shouldUseDebuggers && <Perf position="bottom-left" />}
 
-        <Lights />
+                <Lights />
 
-        <Suspense fallback={null}>
-          <Experience />
-        </Suspense>
-      </Canvas>
-      <Interface />
-      <Leva hidden={!shouldUseDebuggers} />
-    </NavigationControls>
-  )
+                <Suspense fallback={null}>
+                    <Experience />
+                </Suspense>
+            </Canvas>
+            <Interface />
+            <Leva hidden={!shouldUseDebuggers} />
+        </NavigationControls>
+    )
 }
 export default App
