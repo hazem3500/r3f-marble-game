@@ -1,15 +1,23 @@
 import { useFrame } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
-import { forwardRef, useRef, useId } from 'react'
+import { forwardRef, useRef, useId, useMemo } from 'react'
 import * as THREE from 'three'
 import { editable as e } from '@theatre/r3f'
 
 const Obstacle = forwardRef(function Obstacle(props, ref) {
     const id = useId()
 
+    const hitSound = useMemo(() => new Audio('/hit.mp3'), [])
+
+    function onHit({ totalForceMagnitude }) {
+        hitSound.currentTime = 0
+        hitSound.volume = Math.min(totalForceMagnitude / 10000, 1)
+        hitSound.play()
+    }
+
     return (
         <e.group theatreKey={`obstacle-${id}`}>
-            <RigidBody ref={ref} type="kinematicPosition" position-y={2} restitution={2} friction={1} {...props}>
+            <RigidBody ref={ref} type="kinematicPosition" position-y={2} restitution={2} friction={1} onContactForce={onHit} {...props}>
                 <mesh receiveShadow castShadow>
                     <boxGeometry args={[10, 1, 1]} />
                     <meshStandardMaterial color="#A876F5" />
