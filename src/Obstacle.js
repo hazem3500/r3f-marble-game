@@ -1,12 +1,14 @@
 import { useFrame } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useRef, useId } from 'react'
 import * as THREE from 'three'
 import { editable as e } from '@theatre/r3f'
 
 const Obstacle = forwardRef(function Obstacle(props, ref) {
+    const id = useId()
+
     return (
-        <e.group theatreKey={`obstacle ${Math.random()}`}>
+        <e.group theatreKey={`obstacle-${id}`}>
             <RigidBody ref={ref} type="kinematicPosition" position-y={2} restitution={2} friction={1} {...props}>
                 <mesh receiveShadow castShadow>
                     <boxGeometry args={[10, 1, 1]} />
