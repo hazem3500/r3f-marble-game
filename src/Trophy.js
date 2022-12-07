@@ -11,22 +11,17 @@ export default function Trophy(props) {
     const endGame = useGame((state) => state.end)
 
     const group = useRef()
-    const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/heart/model.gltf')
+    const { nodes, materials } = useGLTF('./heart.gltf')
 
     return (
         <RigidBody type="fixed" colliders="hull" restitution={0.2} friction={0} onCollisionEnter={endGame} {...props}>
             <Float speed={6} rotationIntensity={2} floatIntensity={4}>
                 <group ref={group} scale={5} dispose={null}>
-                    <mesh
-                        castShadow
-                        geometry={nodes.heart_teamRed.geometry}
-                        material={materials['Red.015']}
-                        rotation={[Math.PI / 2, 0, 0]}
-                    />
+                    <mesh castShadow geometry={nodes.Heart.geometry} material={materials.Heart} rotation={[0, 0, -Math.PI / 2]} />
                 </group>
             </Float>
         </RigidBody>
     )
 }
 
-useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/heart/model.gltf')
+useGLTF.preload('./heart.gltf')
