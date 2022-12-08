@@ -119,7 +119,16 @@ export default function Ball(props) {
     })
 
     return (
-        <RigidBody ref={ballRef} colliders="ball" mass={2} restitution={0.2} friction={10} linearDamping={1} angularDamping={1} {...props}>
+        <RigidBody
+            ref={ballRef}
+            name="marble"
+            colliders="ball"
+            mass={2}
+            restitution={0.2}
+            friction={10}
+            linearDamping={1}
+            angularDamping={1}
+            {...props}>
             <mesh castShadow>
                 <sphereGeometry />
                 <meshStandardMaterial color="#FFDE91" />
