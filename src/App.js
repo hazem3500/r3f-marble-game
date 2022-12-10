@@ -10,6 +10,7 @@ import { NavigationControls } from './NavigationControls'
 import { Title } from './Title'
 import { useDebuggers } from './useDebuggers'
 import { initStudio, TheatreProvider } from './TheatreStudio'
+import { SoundManager } from './SoundManager'
 
 if (process.env.NODE_ENV === 'development') {
     initStudio()
@@ -25,6 +26,7 @@ function Experience() {
             {debug && <Debug />}
             <Title />
             <Level />
+            <SoundManager />
         </Physics>
     )
 }

@@ -16,7 +16,7 @@ export default function Trophy(props) {
         }
 
         hitSound.currentTime = 0
-        hitSound.volume = Math.random() * 0.2
+        hitSound.volume = Math.random() * 0.1
         hitSound.play()
     }
 
