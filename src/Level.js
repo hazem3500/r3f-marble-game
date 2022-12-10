@@ -1,4 +1,5 @@
 import Ball from './Ball'
+import { Confetti } from './Confetti'
 import Floor from './Floor'
 import Obstacle from './Obstacle'
 import Trophy from './Trophy'
@@ -18,6 +19,10 @@ export default function Level() {
             <Obstacle.Spinner position-z={-75} speed={5} position-x={4} scale-x={0.75} />
             <Obstacle.Spinner position-z={-75} speed={5} position-x={-4} scale-x={0.75} invert />
             <Trophy position-z={-90} position-y={4} />
+            {/* TODO: Figure out why rapier has a different Z-axis direction than normal THREE.jS objects */}
+            <group position-z={90}>
+                <Confetti />
+            </group>
         </>
     )
 }
