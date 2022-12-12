@@ -10,6 +10,7 @@ import { NavigationControls } from './NavigationControls'
 import { Title } from './Title'
 import { useDebuggers } from './useDebuggers'
 import { SoundManager } from './SoundManager'
+import '@fontsource/inter'
 
 function Experience() {
     const { debug } = useControls({

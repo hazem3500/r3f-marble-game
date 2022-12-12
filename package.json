@@ -5,6 +5,7 @@
     "keywords": [],
     "main": "src/index.js",
     "dependencies": {
+        "@fontsource/inter": "^4.5.14",
         "@react-three/drei": "9.36.0",
         "@react-three/fiber": "8.8.10",
         "@react-three/rapier": "0.10.0",
