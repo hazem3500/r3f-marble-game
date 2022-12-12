@@ -8,6 +8,7 @@ import { useGame } from './stores/useGame'
 export default function Ball(props) {
     const { rapier, world } = useRapier()
 
+    const gamePhase = useGame((state) => state.phase)
     const startGame = useGame((state) => state.start)
     const restartGame = useGame((state) => state.restart)
 
@@ -45,7 +46,6 @@ export default function Ball(props) {
     useEffect(() => {
         return subscribeKeys(
             ({ jump, reset }) => {
-                startGame()
                 return { jump, reset }
             },
             ({ jump, reset }) => {
@@ -53,7 +53,7 @@ export default function Ball(props) {
                 if (reset) restartGame()
             }
         )
-    }, [subscribeKeys, jumpHandler, restartGame, startGame])
+    }, [subscribeKeys, jumpHandler, restartGame])
 
     useEffect(() => {
         return useGame.subscribe(
@@ -66,6 +66,8 @@ export default function Ball(props) {
 
     useFrame((_, delta) => {
         const { forward, backward, left, right } = getKeys()
+
+        if (gamePhase === 'ready' && (forward || backward || left || right)) startGame()
 
         const impulse = { x: 0, y: 0, z: 0 }
         const torque = { x: 0, y: 0, z: 0 }

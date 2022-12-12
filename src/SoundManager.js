@@ -16,13 +16,17 @@ function SoundManager() {
     }, [])
 
     useEffect(() => {
+        if (gamePhase === 'ready') {
+            backgroundSound.volume = 0.05
+        }
+        if (gamePhase === 'playing') {
+            backgroundSound.volume = 0.05
+            backgroundSound.play()
+        }
         if (gamePhase === 'ended') {
             backgroundSound.volume = 0.2
             successSound.currentTime = 0
             successSound.play()
-        } else {
-            backgroundSound.volume = 0.05
-            backgroundSound.play()
         }
     }, [gamePhase])
 

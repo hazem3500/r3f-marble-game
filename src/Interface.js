@@ -7,6 +7,7 @@ function Interface() {
     const timerRef = useRef()
 
     const gamePhase = useGame((state) => state.phase)
+    const startGame = useGame((state) => state.start)
     const restartGame = useGame((state) => state.restart)
 
     const controls = useKeyboardControls((state) => state)
@@ -36,8 +37,14 @@ function Interface() {
                 0.00
             </h2>
 
+            {gamePhase === 'ready' && (
+                <h2 className="cta" onClick={startGame}>
+                    Play
+                </h2>
+            )}
+
             {gamePhase === 'ended' && (
-                <h2 className="restart" onClick={restartGame}>
+                <h2 className="cta" onClick={restartGame}>
                     Restart
                 </h2>
             )}
