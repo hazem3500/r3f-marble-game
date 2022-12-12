@@ -1,7 +1,9 @@
 import { useEffect, useMemo } from 'react'
+import { useAudio } from './stores/useAudio'
 import { useGame } from './stores/useGame'
 
 function SoundManager() {
+    const audio = useAudio((state) => state.audio)
     const gamePhase = useGame((state) => state.phase)
 
     const successSound = useMemo(() => {
@@ -29,6 +31,11 @@ function SoundManager() {
             successSound.play()
         }
     }, [gamePhase])
+
+    useEffect(() => {
+        backgroundSound.muted = !audio
+        successSound.muted = !audio
+    }, [audio])
 
     return null
 }

@@ -45,9 +45,7 @@ export default function Ball(props) {
 
     useEffect(() => {
         return subscribeKeys(
-            ({ jump, reset }) => {
-                return { jump, reset }
-            },
+            ({ jump, reset }) => ({ jump, reset }),
             ({ jump, reset }) => {
                 if (jump) jumpHandler()
                 if (reset) restartGame()

@@ -80,3 +80,28 @@ canvas {
 .controls .key.active {
   background: #ffffff99;
 }
+
+.audio-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 64px;
+  height: 64px;
+  color: #ffffff;
+  background-color: #00000033;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 2048px) {
+  .audio-toggle{
+    right: 20vw;
+  }
+}
