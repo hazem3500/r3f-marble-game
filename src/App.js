@@ -9,12 +9,7 @@ import Lights from './Lights'
 import { NavigationControls } from './NavigationControls'
 import { Title } from './Title'
 import { useDebuggers } from './useDebuggers'
-import { initStudio, TheatreProvider } from './TheatreStudio'
 import { SoundManager } from './SoundManager'
-
-if (process.env.NODE_ENV === 'development') {
-    initStudio()
-}
 
 function Experience() {
     const { debug } = useControls({
@@ -41,17 +36,15 @@ function App() {
                 camera={{
                     position: [0, 5, 10]
                 }}>
-                <TheatreProvider>
-                    <color attach="background" args={['#FEF9F7']} />
+                <color attach="background" args={['#FEF9F7']} />
 
-                    {shouldUseDebuggers && <Perf position="bottom-left" />}
+                {shouldUseDebuggers && <Perf position="bottom-left" />}
 
-                    <Lights />
+                <Lights />
 
-                    <Suspense fallback={null}>
-                        <Experience />
-                    </Suspense>
-                </TheatreProvider>
+                <Suspense fallback={null}>
+                    <Experience />
+                </Suspense>
             </Canvas>
             <Interface />
             <Leva hidden={!shouldUseDebuggers} />
