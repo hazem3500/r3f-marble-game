@@ -64,7 +64,7 @@ const SlidingWall = function ({ speed = 1, initialShift = 0, ...props }) {
         const obstacleTranslation = obstacleRef?.current?.translation()
 
         obstacleRef.current.setNextKinematicTranslation({
-            x: Math.sin(time * speed + initialShift) * 5 + 1,
+            x: Math.sin(time * speed + initialShift) * 5,
             y: obstacleTranslation.y,
             z: obstacleTranslation.z
         })
