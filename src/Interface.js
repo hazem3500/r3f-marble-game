@@ -84,6 +84,17 @@ function Interface() {
                     <div className={`key large ${controls.jump ? 'active' : ''}`}></div>
                 </div>
             </div>
+
+            <div className="misc-controls">
+                <div className="misc-control">
+                    <div className="key">R</div>
+                    <div className="label">Reset</div>
+                </div>
+                <div className="misc-control">
+                    <div className="key">M</div>
+                    <div className="label">Mute/Unmute</div>
+                </div>
+            </div>
         </div>
     )
 }

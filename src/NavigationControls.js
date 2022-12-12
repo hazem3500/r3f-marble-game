@@ -6,7 +6,8 @@ const controls = [
     { name: 'left', keys: ['ArrowLeft', 'KeyA'] },
     { name: 'right', keys: ['ArrowRight', 'KeyD'] },
     { name: 'jump', keys: ['Space'] },
-    { name: 'reset', keys: ['r', 'R'] }
+    { name: 'reset', keys: ['r', 'R'] },
+    { name: 'audio', keys: ['m', 'M'] }
 ]
 
 function NavigationControls({ children }) {

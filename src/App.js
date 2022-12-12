@@ -11,6 +11,7 @@ import { Title } from './Title'
 import { useDebuggers } from './useDebuggers'
 import { SoundManager } from './SoundManager'
 import '@fontsource/inter'
+import { ShortcutManager } from './ShortcutManager'
 
 function Experience() {
     const { debug } = useControls({
@@ -48,6 +49,7 @@ function App() {
                 </Suspense>
             </Canvas>
             <Interface />
+            <ShortcutManager />
             <Leva hidden={!shouldUseDebuggers} />
         </NavigationControls>
     )

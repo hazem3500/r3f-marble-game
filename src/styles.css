@@ -75,10 +75,27 @@ canvas {
 
 .controls .key.large {
   width: 144px;
+  margin-bottom: 0;
 }
 
 .controls .key.active {
   background: #ffffff99;
+}
+
+.misc-controls {
+  display: grid;
+  gap: 16px;
+  position: absolute;
+  bottom: 10%;
+  right: 20px;
+}
+
+.misc-control {
+  display: flex;
+  gap: 16px;
+  
+  color: #ffffff;
+  font-size: 24px;
 }
 
 .high-score {
@@ -122,7 +139,7 @@ canvas {
     left: 20vw;
   }
 
-  .audio-toggle{
+  .audio-toggle, .misc-controls {
     right: 20vw;
   }
 }
