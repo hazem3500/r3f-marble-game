@@ -12,6 +12,7 @@ function Interface() {
     const audio = useAudio((state) => state.audio)
     const toggleAudio = useAudio((state) => state.toggleAudio)
 
+    const highScore = useGame((state) => state.highScore)
     const gamePhase = useGame((state) => state.phase)
     const startGame = useGame((state) => state.start)
     const restartGame = useGame((state) => state.restart)
@@ -44,6 +45,12 @@ function Interface() {
 
     return (
         <div className="interface">
+            {highScore > 0 && (
+                <div className="high-score">
+                    <h2>High Score: {(highScore / 1000).toFixed(2)}</h2>
+                </div>
+            )}
+
             <button className="audio-toggle" onClick={handleToggleAudio}>
                 <UseAnimations animation={volume} reverse={!audio} strokeColor="white" />
             </button>

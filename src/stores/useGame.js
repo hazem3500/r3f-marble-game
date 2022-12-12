@@ -1,10 +1,12 @@
 import create from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
+import { getLocalStorage, setLocalStorage } from './utils'
 
 const useGame = create(
     subscribeWithSelector((set) => ({
         startTime: 0,
         endTime: 0,
+        highScore: getLocalStorage('highScore') || 0,
         phase: 'ready',
         start: () =>
             set((state) => {
@@ -21,7 +23,13 @@ const useGame = create(
         end: () =>
             set((state) => {
                 if (state.phase === 'playing') {
-                    return { phase: 'ended', endTime: Date.now() }
+                    const endTime = Date.now()
+                    const score = endTime - state.startTime
+                    const highScore = state.highScore === 0 || score < state.highScore ? score : state.highScore
+
+                    setLocalStorage('highScore', highScore)
+
+                    return { phase: 'ended', endTime, highScore }
                 }
                 return {}
             })

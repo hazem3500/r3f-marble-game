@@ -81,6 +81,23 @@ canvas {
   background: #ffffff99;
 }
 
+.high-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #00000033;
+  height: 64px;
+  padding: 0 16px;
+
+  border-radius: 8px;
+}
+
 .audio-toggle {
   display: flex;
   justify-content: center;
@@ -101,6 +118,10 @@ canvas {
 }
 
 @media screen and (min-width: 2048px) {
+  .high-score {
+    left: 20vw;
+  }
+
   .audio-toggle{
     right: 20vw;
   }
