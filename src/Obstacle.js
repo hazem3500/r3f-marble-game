@@ -56,7 +56,7 @@ const Limbo = function ({ speed = 1, initialShift = 0, ...props }) {
         })
     })
 
-    return <Obstacle ref={obstacleRef} scale-x={1.6} {...props} />
+    return <Obstacle ref={obstacleRef} scale-x={2} {...props} />
 }
 
 const SlidingWall = function ({ speed = 1, initialShift = 0, ...props }) {
