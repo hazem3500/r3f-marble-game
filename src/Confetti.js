@@ -1,5 +1,5 @@
 import { InstancedRigidBodies } from '@react-three/rapier'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useGame } from './stores/useGame'
 
@@ -38,7 +38,7 @@ function Confetti({ count = 1000 }) {
                 <sphereGeometry>
                     <instancedBufferAttribute attach="attributes-color" args={[colors, 3]} />
                 </sphereGeometry>
-                <meshLambertMaterial vertexColors toneMapped={false} />
+                <meshStandardMaterial vertexColors />
             </instancedMesh>
         </InstancedRigidBodies>
     )
