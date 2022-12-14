@@ -98,8 +98,8 @@ export default function Ball(props) {
 
         const cameraPosition = new THREE.Vector3()
         cameraPosition.copy(ballPosition)
-        cameraPosition.z += 3.5
-        cameraPosition.y += 2
+        cameraPosition.z += 6
+        cameraPosition.y += 3
 
         const cameraTarget = new THREE.Vector3()
         cameraTarget.copy(ballPosition)
