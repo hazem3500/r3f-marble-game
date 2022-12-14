@@ -6,7 +6,7 @@ import { useAudio } from './stores/useAudio'
 
 const Obstacle = forwardRef(function Obstacle(props, ref) {
     const audio = useAudio((state) => state.audio)
-    const hitSound = useMemo(() => new Audio('/hit.mp3'), [])
+    const hitSound = useMemo(() => new Audio('/sounds/hit.mp3'), [])
 
     function onHit({ totalForceMagnitude }) {
         hitSound.currentTime = 0

@@ -7,12 +7,12 @@ function SoundManager() {
     const gamePhase = useGame((state) => state.phase)
 
     const successSound = useMemo(() => {
-        const sound = new Audio('/success.mp3')
+        const sound = new Audio('/sounds/success.mp3')
         sound.volume = 0.2
         return sound
     }, [])
     const backgroundSound = useMemo(() => {
-        const sound = new Audio('/background.mp3')
+        const sound = new Audio('/sounds/background.mp3')
         sound.loop = true
         return sound
     }, [])

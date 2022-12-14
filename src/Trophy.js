@@ -6,11 +6,11 @@ import { useAudio } from './stores/useAudio'
 
 export default function Trophy(props) {
     const group = useRef()
-    const { nodes, materials } = useGLTF('./heart.gltf')
+    const { nodes, materials } = useGLTF('./geometries/heart.gltf')
 
     const endGame = useGame((state) => state.end)
     const audio = useAudio((state) => state.audio)
-    const hitSound = useMemo(() => new Audio('/hit.mp3'), [])
+    const hitSound = useMemo(() => new Audio('/sounds/hit.mp3'), [])
 
     function onHit({ other }) {
         if (other.rigidBodyObject.name === 'marble') {
