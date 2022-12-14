@@ -2,7 +2,11 @@
 
 # R3F Marble Racer
 
-![image](https://user-images.githubusercontent.com/22430645/207627675-8536459d-8958-4745-bf9a-384d3ccacdc1.png)
+<a href="https://r3f-marble-game.vercel.app/">
+
+  ![image](https://user-images.githubusercontent.com/22430645/207627675-8536459d-8958-4745-bf9a-384d3ccacdc1.png)
+
+</a>
 
 🎮 [Play Game](https://r3f-marble-game.vercel.app/)  or 🛠️ [Edit on Codesandbox](https://codesandbox.io/s/github/hazem3500/r3f-marble-game)!
 
