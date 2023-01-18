@@ -1,5 +1,5 @@
 import { useKeyboardControls } from '@react-three/drei'
-import { addEffect } from '@react-three/fiber'
+// import { addEffect } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import UseAnimations from 'react-useanimations'
 import volume from 'react-useanimations/lib/volume'
@@ -19,24 +19,24 @@ function Interface() {
 
     const controls = useKeyboardControls((state) => state)
 
-    useEffect(() => {
-        return addEffect(() => {
-            const state = useGame.getState()
+    // useEffect(() => {
+    //     return addEffect(() => {
+    //         const state = useGame.getState()
 
-            let elapsedTime = 0
+    //         let elapsedTime = 0
 
-            if (state.phase === 'playing') {
-                elapsedTime = Date.now() - state.startTime
-            } else if (state.phase === 'ended') {
-                elapsedTime = state.endTime - state.startTime
-            }
+    //         if (state.phase === 'playing') {
+    //             elapsedTime = Date.now() - state.startTime
+    //         } else if (state.phase === 'ended') {
+    //             elapsedTime = state.endTime - state.startTime
+    //         }
 
-            elapsedTime /= 1000
-            elapsedTime = elapsedTime.toFixed(2)
+    //         elapsedTime /= 1000
+    //         elapsedTime = elapsedTime.toFixed(2)
 
-            if (timerRef.current) timerRef.current.innerText = elapsedTime
-        })
-    }, [])
+    //         if (timerRef.current) timerRef.current.innerText = elapsedTime
+    //     })
+    // }, [])
 
     function handleToggleAudio(e) {
         toggleAudio()

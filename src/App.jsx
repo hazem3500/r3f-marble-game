@@ -1,6 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Debug, Physics } from '@react-three/rapier'
-import { Leva, useControls } from 'leva'
+import { Physics } from '@react-three/rapier'
 import { Perf } from 'r3f-perf'
 import { Suspense } from 'react'
 import { Interface } from './Interface'
@@ -8,19 +7,13 @@ import Level from './Level'
 import Lights from './Lights'
 import { NavigationControls } from './NavigationControls'
 import { Title } from './Title'
-import { useDebuggers } from './useDebuggers'
 import { SoundManager } from './SoundManager'
 import '@fontsource/inter'
 import { ShortcutManager } from './ShortcutManager'
 
 function Experience() {
-    const { debug } = useControls({
-        debug: false
-    })
-
     return (
         <Physics>
-            {debug && <Debug />}
             <Title />
             <Level />
             <SoundManager />
@@ -29,7 +22,6 @@ function Experience() {
 }
 
 function App() {
-    const shouldUseDebuggers = useDebuggers()
 
     return (
         <NavigationControls>
@@ -40,8 +32,6 @@ function App() {
                 }}>
                 <color attach="background" args={['#FEF9F7']} />
 
-                {shouldUseDebuggers && <Perf position="bottom-left" />}
-
                 <Lights />
 
                 <Suspense fallback={null}>
@@ -50,7 +40,6 @@ function App() {
             </Canvas>
             <Interface />
             <ShortcutManager />
-            <Leva hidden={!shouldUseDebuggers} />
         </NavigationControls>
     )
 }
